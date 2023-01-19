@@ -28,9 +28,3 @@ function HideTextUI()
 end
 
 exports('HideTextUI', HideTextUI)
-
-RegisterCommand('textui', function()
-    TextUI('[E] Open Store Front For the best deals in town!', 'info')
-    Citizen.Wait(5000)
-    HideTextUI()
-end)
