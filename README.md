@@ -4,60 +4,20 @@
 
 <https://dsc.gg/qw-scripts>
 
-## qw-notify
+## qw-textui
 
-Standalone customizable notification system
+Standalone customizable text UI
 
 ## Installation
 
 **PLEASE DOWNLOAD FROM THE LATEST BUILD [HERE](https://github.com/qw-scripts/qw-notify/releases/latest)**
 
-## QBCore Setup (`qb-core/client/functions.lua` around line `88`)
-
-Replace the following:
+## Exports
 
 ```lua
-function QBCore.Functions.Notify(text, texttype, length)
-    if type(text) == "table" then
-        local ttext = text.text or 'Placeholder'
-        local caption = text.caption or 'Placeholder'
-        texttype = texttype or 'primary'
-        length = length or 5000
-        SendNUIMessage({
-            action = 'notify',
-            type = texttype,
-            length = length,
-            text = ttext,
-            caption = caption
-        })
-    else
-        texttype = texttype or 'primary'
-        length = length or 5000
-        SendNUIMessage({
-            action = 'notify',
-            type = texttype,
-            length = length,
-            text = text
-        })
-    end
-end
+export['qw-textui']:TextUI('Message here', 'info')
 ```
-
-with:
 
 ```lua
-function QBCore.Functions.Notify(text, texttype, length)
-    if type(text) == "table" then
-        local ttext = text.text or 'Placeholder'
-        length = length or 5000
-        texttype = texttype or 'primary'
-        exports['qw-notify']:Notify(ttext, texttype, length)
-    else
-        texttype = texttype or 'primary'
-        length = length or 5000
-        exports['qw-notify']:Notify(text, texttype, length)
-    end
-end
+export['qw-textui']:HideTextUI()
 ```
-
-This will get setup to exchange out the vanilla QBCore notifications with this resource.
