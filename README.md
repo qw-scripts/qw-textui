@@ -10,7 +10,7 @@ Standalone customizable text UI
 
 ## Installation
 
-**PLEASE DOWNLOAD FROM THE LATEST BUILD [HERE](https://github.com/qw-scripts/qw-notify/releases/latest)**
+**PLEASE DOWNLOAD FROM THE LATEST BUILD [HERE](https://github.com/qw-scripts/qw-textui/releases/latest)**
 
 ## Exports
 
