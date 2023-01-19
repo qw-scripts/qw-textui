@@ -18,6 +18,8 @@ function TextUI(message, messageType)
     })
 end
 
+exports('TextUI', TextUI)
+
 function HideTextUI()
     SendNUIMessage({
         action = 'hideTextUI',
