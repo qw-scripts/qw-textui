@@ -32,4 +32,10 @@ Config.Colors = { -- You can change these colors to whatever you want
         fontColor = '#ffffff',
         fontFamily = 'Arial, sans-serif'
     },
+    ['green'] =  {
+        main = 'yellow',
+        border = 'red',
+        fontColor = 'black',
+        fontFamily = 'Arial, sans-serif'
+    },
 }

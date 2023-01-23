@@ -1,6 +1,19 @@
-
 <script>
   import ToastProvider from "./providers/ToastProvider.svelte";
+  import { debugData } from "./utils/debugData";
+  import { isEnvBrowser } from "./utils/misc";
+
+  if (isEnvBrowser()) {
+    debugData([
+      {
+        action: "addTextUI",
+        data: {
+          message: '[E] Press to Win!',
+          type: "primary",
+        },
+      },
+    ]);
+  }
 </script>
 
 <main class="container">

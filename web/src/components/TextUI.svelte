@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { fade } from "svelte/transition";
+  import { isEnvBrowser } from "../utils/misc";
+import { fade } from "svelte/transition";
   import { colors } from "../store/stores";
 
   let configColors: any;
@@ -12,7 +13,7 @@
 
 <section>
   <article
-    style="background: {configColors[messageType].main}; border: 2px solid {configColors[messageType].border}; color: {configColors[messageType].fontColor}; font-family: {configColors[messageType].fontFamily};"
+    style="background: { isEnvBrowser() ? 'black' : configColors[messageType]?.main}; border: 2px solid {isEnvBrowser() ? 'lightgray' : configColors[messageType]?.border}; color: {isEnvBrowser() ? 'white' : configColors[messageType]?.fontColor};"
     class="px-4 py-2"
     role="alert"
     transition:fade
@@ -30,19 +31,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    width: fit-content;
     @apply shadow-inner;
   }
 
   section {
-    position: fixed;
+    position: absolute;
     top: 50%;
-    left: 10%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    margin-top: 1rem;
-    justify-content: center;
-    flex-direction: column;
-    z-index: 1000;
+    left: 10px;
+    width: 100%;
+    height: 100%;
   }
 
   .text {

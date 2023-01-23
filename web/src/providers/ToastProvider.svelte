@@ -4,6 +4,7 @@
   import { onMount } from "svelte";
   import { fetchNui } from "../utils/fetchNui";
   import TextUi from "../components/TextUI.svelte";
+  import { isEnvBrowser } from "../utils/misc";
 
   let messageToShow: string;
   let messageType: string;
@@ -14,6 +15,7 @@
   });
 
   onMount(async () => {
+    if (isEnvBrowser()) return;
     const colorList = await fetchNui("qw-textui:GetColorConfig");
     colors.set(colorList);
   });
