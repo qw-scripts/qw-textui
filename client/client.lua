@@ -3,7 +3,10 @@ RegisterNUICallback('qw-textui:GetColorConfig', function(_, cb)
     cb(colors)
 end)
 
-function TextUI(message, messageType)
+---@param message string
+---@param messageType any
+---@param icon? string
+function TextUI(message, messageType, icon)
 
     if message == nil then message = "" end
 
@@ -13,7 +16,8 @@ function TextUI(message, messageType)
         action = 'addTextUI',
         data = {
             message = message,
-            type = messageType
+            type = messageType,
+            icon = icon
         }
     })
 end
@@ -23,7 +27,6 @@ exports('TextUI', TextUI)
 function HideTextUI()
     SendNUIMessage({
         action = 'hideTextUI',
-        data = {}
     })
 end
 

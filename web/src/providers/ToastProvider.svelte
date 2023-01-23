@@ -6,8 +6,16 @@
   import TextUi from "../components/TextUI.svelte";
   import { isEnvBrowser } from "../utils/misc";
 
+  interface ITextUIOptions {
+    message: string;
+    type: string;
+    icon?: string;
+  }
+
   let messageToShow: string;
   let messageType: string;
+  let messageIcon: string | undefined;
+
   let isVisible: boolean;
 
   show.subscribe((visible) => {
@@ -20,10 +28,12 @@
     colors.set(colorList);
   });
 
-  useNuiEvent<any>("addTextUI", (data) => {
-    const { message, type } = data;
+  useNuiEvent<any>("addTextUI", (data: ITextUIOptions) => {
+    const { message, type, icon } = data;
     messageToShow = message;
     messageType = type;
+    messageIcon = icon;
+
     show.set(true);
   });
 
@@ -32,10 +42,8 @@
   });
 </script>
 
-<main>
-  {#if isVisible}
-    <TextUi {messageType}>
-      {messageToShow}
-    </TextUi>
-  {/if}
-</main>
+{#if isVisible}
+  <TextUi {messageType} {messageIcon}>
+    <p>{messageToShow}</p>
+  </TextUi>
+{/if}

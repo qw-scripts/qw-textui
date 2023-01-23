@@ -8,8 +8,9 @@
       {
         action: "addTextUI",
         data: {
-          message: '[E] Press to Win!',
+          message: '[E] Press this here cause its really cool!',
           type: "primary",
+          icon: "fas fa-bolt",
         },
       },
     ]);

@@ -5,6 +5,7 @@ import { fade } from "svelte/transition";
 
   let configColors: any;
   export let messageType: string;
+  export let messageIcon: string | undefined;
 
   colors.subscribe((colors) => {
     configColors = colors;
@@ -18,7 +19,10 @@ import { fade } from "svelte/transition";
     role="alert"
     transition:fade
   >
-    <div class="text font-semibold whitespace-nowrap">
+    <div class="text-sm font-semibold whitespace-nowrap flex items-center">
+      {#if messageIcon}
+        <i class="{messageIcon} fa-fw flex items-center justify-center mr-2" style="color: {isEnvBrowser() ? 'white' : configColors[messageType]?.fontColor};" />
+      {/if}
       <slot />
     </div>
   </article>
@@ -32,7 +36,6 @@ import { fade } from "svelte/transition";
     align-items: center;
     justify-content: center;
     width: fit-content;
-    @apply shadow-inner;
   }
 
   section {
@@ -41,9 +44,5 @@ import { fade } from "svelte/transition";
     left: 10px;
     width: 100%;
     height: 100%;
-  }
-
-  .text {
-    font-size: 14px;
   }
 </style>
