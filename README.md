@@ -15,9 +15,9 @@ Standalone customizable text UI
 ## Exports
 
 ```lua
-export['qw-textui']:TextUI('Message here', 'info')
+exports['qw-textui']:TextUI('Message here', 'info')
 ```
 
 ```lua
-export['qw-textui']:HideTextUI()
+exports['qw-textui']:HideTextUI()
 ```
