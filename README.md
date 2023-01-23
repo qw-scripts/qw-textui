@@ -15,7 +15,7 @@ Standalone customizable text UI
 ## Exports
 
 ```lua
-exports['qw-textui']:TextUI('Message here', 'info')
+exports['qw-textui']:TextUI('Message here', 'info', 'fa-solid fa-car')
 ```
 
 ```lua
